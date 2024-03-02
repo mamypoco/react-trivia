@@ -4,12 +4,14 @@ body {
   background-color: rgb(226, 215, 215);
 }
 
-#category option:first-child {
-  min-height: 60px; /* Adjust the height as needed */
-}
-// .category-option {
-//   min-height: 40px;
+// #category option:first-child {
+//   font-size: 20px;
 // }
+.category-option {
+  text-align: center;
+  //   font-size: 20px;
+  //   padding: 1rem;
+}
 #category option {
   font-weight: 700;
 }
