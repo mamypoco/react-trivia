@@ -8,7 +8,7 @@ const Trivia = () => {
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [categories, setCategories] = useState([]);
   const [categoryName, setCategoryName] = useState("");
-  const [categoryId, setCategoryId] = useState(0);
+  const [categoryId, setCategoryId] = useState(null);
   const [difficulty, setDifficulty] = useState("");
   const [showNextButton, setShowNextButton] = useState(false);
   const [userChoiceCorrect, setUserChoiceCorrect] = useState(null);
@@ -109,7 +109,6 @@ const Trivia = () => {
           <option className="category-option" value="">
             - Select Category -
           </option>
-
           {categories.map((cat) => (
             <option key={cat.id} value={cat.id}>
               {cat.name}
