@@ -119,8 +119,8 @@ const Trivia = () => {
       </div>
       {categoryId && (
         <>
-          <p>Category: {decode(categoryName)}</p>
-          <p>Difficulty: {difficulty}</p>
+          <p className="cat-dif">Category: {decode(categoryName)}</p>
+          <p className="cat-dif">Difficulty: {difficulty}</p>
           <p className="question">
             <strong>Question:</strong> {decode(question)}
           </p>
