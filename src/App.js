@@ -103,11 +103,11 @@ const Trivia = () => {
   return (
     <div className="App">
       <h2>Happy Hour Trivia</h2>
-      <div className="category-select">
+      <div className="select-wrapper">
         <label htmlFor="category">Select Category: </label>
         <select id="category" onChange={handleCategoryChange}>
           <option className="category-option" value="">
-            　💚 - - - Select Category - - - 💛
+            💚 - - - Select Category - - - 💛
           </option>
           {categories.map((cat) => (
             <option key={cat.id} value={cat.id}>
