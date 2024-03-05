@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { decode } from "html-entities";
+import Loading from "./components/Loading/Loading";
 import "./App.scss";
 
 const Trivia = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [question, setQuestion] = useState("");
   const [choices, setChoices] = useState([]);
   const [correctAnswer, setCorrectAnswer] = useState("");
@@ -59,7 +61,7 @@ const Trivia = () => {
           correct_answer,
           incorrect_answers,
         } = data.results[0];
-
+        console.log("isLoading before:", isLoading);
         //   setCategoryName(categoryName);
         //   setCategoryId(categoryId);
         setDifficulty(difficulty);
@@ -68,6 +70,8 @@ const Trivia = () => {
         setChoices(shuffleArray([correct_answer, ...incorrect_answers]));
         setUserChoiceCorrect(null);
         setShowNextButton(false);
+        setIsLoading(false);
+        console.log("isLoading after:", isLoading);
       } else {
         console.error("No trivia questions found");
       }
@@ -107,8 +111,9 @@ const Trivia = () => {
         <label htmlFor="category">Select Category: </label>
         <select id="category" onChange={handleCategoryChange}>
           <option className="category-option" value="">
-            💚 - - - Select Category - - - 💛
+            - - - Select Category - - -
           </option>
+
           {categories.map((cat) => (
             <option key={cat.id} value={cat.id}>
               {cat.name}
@@ -116,6 +121,7 @@ const Trivia = () => {
           ))}
         </select>
       </div>
+      {isLoading && <Loading />}
       {categoryId && (
         <>
           <p className="cat-dif">Category: {decode(categoryName)}</p>
